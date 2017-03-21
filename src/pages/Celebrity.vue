@@ -8,7 +8,7 @@
         </div>
         <div class="celebrity-info">
           <div>性别：{{celebrity.gender}}</div>
-          <div>出生地：{{celebrity.born_place}}</div>
+          <div v-if="celebrity.born_place">出生地：{{celebrity.born_place}}</div>
           <div>
             <a :href="celebrity.alt">
               <div class="douban-link">
@@ -51,7 +51,7 @@ export default {
       'FETCH_CELEBRITY'
     ])
   },
-  mounted () {
+  created () {
     this.FETCH_CELEBRITY(this.$route.params.id)
   },
   components: {

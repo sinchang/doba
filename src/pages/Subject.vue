@@ -4,7 +4,7 @@
     <section class="subject-casts">
       <div class="casts-title">主演</div>
       <div class="subject-casts-flex">
-        <cast v-for="(cast, key) in movie.casts" :cast="cast"></cast>
+        <cast v-for="(cast, key) in movie.casts" :cast="cast" :key="cast.id"></cast>
       </div>
     </section>
     <section class="subject-content">
@@ -33,7 +33,7 @@ export default {
       'FETCH_SUBJECT'
     ])
   },
-  mounted () {
+  created () {
     this.FETCH_SUBJECT(this.$route.params.id)
   },
   components: {

@@ -19,7 +19,7 @@ export default {
       'keyword'
     ])
   },
-  mounted () {
+  created () {
     this.SEARCH()
   },
   methods: {

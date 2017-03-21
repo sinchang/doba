@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <Movie :movie="movie" v-for="(movie, key) in movies" bg="subject-hero-bg"></Movie>
+      <Movie :movie="movie" v-for="(movie, key) in movies" bg="subject-hero-bg" :key="movie.id"></Movie>
     </ul>
   </div>
 </template>

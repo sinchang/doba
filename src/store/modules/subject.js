@@ -10,7 +10,7 @@ const mutations = {
     state.movie = {}
     ajax({
       url: `subject/${id}`,
-      successCallback: function(res) {
+      successCallback: (res) => {
         state.movie = res
       },
     })

@@ -10,7 +10,7 @@ const mutations = {
     state.celebrity = {}
     ajax({
       url: `celebrity/${id}`,
-      successCallback: function(res) {
+      successCallback: (res) => {
         state.celebrity = res
       },
     })

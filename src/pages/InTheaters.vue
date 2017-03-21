@@ -23,7 +23,7 @@ export default {
       'FETCH_INTHEATERS'
     ])
   },
-  mounted () {
+  created () {
     this.FETCH_INTHEATERS()
   },
   components: {

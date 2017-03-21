@@ -10,7 +10,7 @@ const mutations = {
     state.movies = []
     ajax({
       url: 'in_theaters',
-      successCallback: function(res) {
+      successCallback: (res) => {
         state.movies = res.subjects
       },
     })

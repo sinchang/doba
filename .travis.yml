@@ -13,6 +13,7 @@ script:
 
 after_script:
   - cd dist
+  - echo "doba.sinchang.me" >> CNAME
   - git init
   - git config user.name "sinchang"
   - git config user.email "sinchangwen@gmail.com"
