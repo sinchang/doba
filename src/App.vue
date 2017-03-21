@@ -13,12 +13,13 @@
     </div>
     <footer>
       <p>
-        <a href="https://github.com/haishanh/doba-react">doba-react</a>
-        <span>clone made with </span>
+        <span>Doba Movie is based on</span>
+        <a href="https://github.com/haishanh/doba-react"> doba-react</a>
+        <span>made with </span>
         <span class="red">love</span>
         <span> by sinchang</span>
       </p>
-      <a href='https://github.com/sinchang/doba-vue'>
+      <a href='https://github.com/sinchang/doba'>
         <Icon name="github"></Icon>
       </a>
     </footer>
