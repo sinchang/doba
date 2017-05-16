@@ -35,24 +35,18 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters } from 'vuex'
 import Icon from '../components/Icon'
 import Loading from '../components/Loading'
 
 export default {
   name: 'celebrity',
   computed: {
-    ...mapGetters([
-      'celebrity',
-    ])
+    celebrity() {
+      return this.$store.state.celebrity.celebrity
+    }
   },
-  methods: {
-    ...mapMutations([
-      'FETCH_CELEBRITY'
-    ])
-  },
-  created () {
-    this.FETCH_CELEBRITY(this.$route.params.id)
+  created() {
+    this.$store.dispatch('fetchCelebrity', this.$store.state.route.params.id)
   },
   components: {
     Icon,

@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters } from 'vuex'
 import Movie from '../components/Movie'
 import Cast from '../components/Cast'
 import Loading from '../components/Loading'
@@ -24,17 +23,12 @@ import Loading from '../components/Loading'
 export default {
   name: 'subject',
   computed: {
-    ...mapGetters([
-      'movie',
-    ])
-  },
-  methods: {
-    ...mapMutations([
-      'FETCH_SUBJECT'
-    ])
+    movie() {
+      return this.$store.state.subject.movie
+    }
   },
   created () {
-    this.FETCH_SUBJECT(this.$route.params.id)
+    this.$store.dispatch('fetchSubject', this.$store.state.route.params.id)
   },
   components: {
     Movie,

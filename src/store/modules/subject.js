@@ -6,23 +6,24 @@ const state = {
 }
 
 const mutations = {
-  [types.FETCH_SUBJECT] (state, id) {
-    state.movie = {}
+  [types.FETCH_SUBJECT] (state, movie) {
+    state.movie = movie
+  }
+}
+
+const actions = {
+  fetchSubject({ commit }, id) {
     ajax({
       url: `subject/${id}`,
       successCallback: (res) => {
-        state.movie = res
+        commit(types.FETCH_SUBJECT, res)
       },
     })
   }
 }
 
-const getters = {
-  movie: state => state.movie
-}
-
 export default {
   state,
-  getters,
-  mutations
+  mutations,
+  actions
 }

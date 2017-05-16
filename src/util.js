@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import store from './store'
 
-export const ajax = (options) => {
-  var defaults = {
+export const ajax = options => {
+  const defaults = {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'

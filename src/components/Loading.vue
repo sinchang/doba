@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="loading" v-if="loading">
+      222222222222222222
       <div class="left circle"></div>
       <div class="right circle"></div>
     </div>
@@ -8,13 +9,12 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 export default {
   name: 'loading',
   computed: {
-    ...mapGetters([
-      'loading',
-    ])
+    loading() {
+      return this.$store.state.loading
+    }
   },
 }
 </script>

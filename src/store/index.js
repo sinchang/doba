@@ -12,31 +12,33 @@ Vue.use(Vuex)
 const state = {
   loading: false,
   keyword: '',
-  result: []
-}
-
-const getters = {
-  loading: state => state.loading,
-  keyword: state => state.keyword,
-  result: state => state.result
+  results: []
 }
 
 const mutations = {
-  [types.SHOW_LOADING] (state) {
+  [types.SHOW_LOADING](state) {
     state.loading = true
   },
-  [types.HIDE_LOADING] (state) {
+  [types.HIDE_LOADING](state) {
     state.loading = false
   },
-  [types.SEARCH] (state, e) {
-    state.result = []
-    state.keyword = e ? e.target.value : state.route.query.q
-    e ? e.target.value = '' : ''
-    router.push({ path: '/search', query: { q: state.keyword }})
+  [types.SEARCH](state, subjects) {
+    state.results = subjects
+  },
+  [types.GET_KEYWORD](state, keyword) {
+    state.keyword = keyword
+  }
+}
+
+const actions = {
+  searchHandle(store, e) {
+    const keyword = e ? e.target.value : store.state.route.query.q
+    router.push({ path: '/search', query: { q: keyword } })
     ajax({
-       url: `search?q=${state.keyword}`,
-      successCallback: function(res) {
-        state.result = res.subjects
+      url: `search?q=${keyword}`,
+      successCallback: function (res) {
+        store.commit(types.SEARCH, res.subjects)
+        store.commit(types.GET_KEYWORD, keyword)
       },
     })
   }
@@ -45,7 +47,7 @@ const mutations = {
 export default new Vuex.Store({
   state,
   mutations,
-  getters,
+  actions,
   modules: {
     inTheaters,
     subject,

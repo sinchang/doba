@@ -7,24 +7,18 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters } from 'vuex'
 import MovieList from '../components/MovieList'
 import Loading from '../components/Loading'
 
 export default {
   name: 'inTheaters',
   computed: {
-    ...mapGetters([
-      'movies'
-    ])
-  },
-  methods: {
-    ...mapMutations([
-      'FETCH_INTHEATERS'
-    ])
+    movies() {
+      return this.$store.state.inTheaters.movies
+    }
   },
   created () {
-    this.FETCH_INTHEATERS()
+    this.$store.dispatch('fetchInTheaters')
   },
   components: {
     MovieList,

@@ -6,7 +6,7 @@
       </div>
       <input class="search-input"
              type="text"
-             @keyup.enter="SEARCH"
+             @keyup.enter="search"
              @focus="focused=true"
              @blur="focused=false"
              placeholder="搜索..." />
@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
 import Icon from './Icon'
 
 export default {
@@ -26,9 +25,9 @@ export default {
     }
   },
   methods: {
-    ...mapMutations([
-      'SEARCH',
-    ])
+   search(e) {
+     this.$store.dispatch('searchHandle', e)
+   }
   },
   components: {
     Icon

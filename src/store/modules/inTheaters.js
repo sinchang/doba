@@ -6,23 +6,24 @@ const state = {
 }
 
 const mutations = {
-  [types.FETCH_INTHEATERS] (state) {
-    state.movies = []
+  [types.FETCH_INTHEATERS](state, movies) {
+    state.movies = movies
+  }
+}
+
+const actions = {
+  fetchInTheaters({ commit }) {
     ajax({
       url: 'in_theaters',
       successCallback: (res) => {
-        state.movies = res.subjects
-      },
+        commit(types.FETCH_INTHEATERS, res.subjects)
+      }
     })
   }
 }
 
-const getters = {
-  movies: state => state.movies
-}
-
 export default {
   state,
-  getters,
-  mutations
+  mutations,
+  actions
 }
