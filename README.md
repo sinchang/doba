@@ -1,5 +1,7 @@
 # Doba Movie
 
+[![Build Status](https://travis-ci.org/sinchang/doba.svg?branch=master)](https://travis-ci.org/sinchang/doba)
+
 > A douban movie web app，based on [doba-react](https://github.com/haishanh/doba-react).
 
 # Related
