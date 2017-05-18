@@ -31,8 +31,8 @@ const mutations = {
 }
 
 const actions = {
-  searchHandle(store, e) {
-    const keyword = e ? e.target.value : store.state.route.query.q
+  searchHandle(store, res) {
+    const keyword = res ? res : store.state.route.query.q
     router.push({ path: '/search', query: { q: keyword } })
     ajax({
       url: `search?q=${keyword}`,

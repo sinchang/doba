@@ -17,7 +17,7 @@ export default {
       return this.$store.state.inTheaters.movies
     }
   },
-  created () {
+  mounted() {
     this.$store.dispatch('fetchInTheaters')
   },
   components: {

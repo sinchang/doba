@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="intheater title" v-if="keyword">搜索的 "{{keyword}}" 结果</div>
-    <MovieList :movies="results"></MovieList>
+    <div class="intheater title" v-if="keyword" v-show="loading">搜索的 "{{keyword}}" 结果</div>
+    <MovieList :movies="results" v-show="loading"></MovieList>
     <Loading></Loading>
   </div>
 </template>
@@ -18,10 +18,13 @@ export default {
     },
     keyword() {
       return this.$store.state.keyword
+    },
+    loading() {
+      return !this.$store.state.loading
     }
   },
-  created () {
-    this.$store.dispatch('searchHandle', undefined)
+  mounted() {
+    this.$store.dispatch('searchHandle')
   },
   components: {
     Loading,

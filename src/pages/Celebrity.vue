@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="celebrity-page">
+    <div class="celebrity-page" v-show="loading">
       <div class="content-title">{{celebrity.name}} {{celebrity.name_en}}</div>
       <div class="celebrity-profile">
         <div class="celebrity-image">
@@ -43,9 +43,12 @@ export default {
   computed: {
     celebrity() {
       return this.$store.state.celebrity.celebrity
+    },
+    loading() {
+      return !this.$store.state.loading
     }
   },
-  created() {
+  mounted() {
     this.$store.dispatch('fetchCelebrity', this.$store.state.route.params.id)
   },
   components: {
