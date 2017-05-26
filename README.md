@@ -12,10 +12,9 @@
 - vuex-router-sync
 - vue-jsonp
 
-# Other
+# Credits
 
-- Thanks haishanh brother built a perfect app.
-- It's my first time to use Vuex, so code maybe bad, welcome pr and give me some advice.
+- [doba-react](https://github.com/haishanh/doba-react)
 
 ## Build Setup
 
